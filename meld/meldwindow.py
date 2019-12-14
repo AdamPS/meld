@@ -516,16 +516,10 @@ class MeldWindow(Component):
         # Normal switch-page handlers don't get run for removing the
         # last page from a notebook.
         if not self.has_pages():
-            self.on_switch_page(self.notebook, page, -1)
-            self._update_page_action_sensitivity()
-            # Synchronise UIManager state; this shouldn't be necessary,
-            # but upstream aren't touching UIManager bugs.
-            self.ui.ensure_update()
-            if self.should_close:
-                cancelled = self.widget.emit(
-                    'delete-event', Gdk.Event.new(Gdk.EventType.DELETE))
-                if not cancelled:
-                    self.widget.emit('destroy')
+            cancelled = self.widget.emit(
+                'delete-event', Gdk.Event.new(Gdk.EventType.DELETE))
+            if not cancelled:
+                self.widget.emit('destroy')
 
     def on_page_state_changed(self, page, old_state, new_state):
         if self.should_close and old_state == ComparisonState.Closing:
