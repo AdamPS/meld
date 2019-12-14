@@ -81,7 +81,7 @@
         <property name="stock_id">gtk-goto-last</property>
         <signal name="activate" handler="action_pull_change_left" swapped="no"/>
       </object>
-      <accelerator key="Right" modifiers="GDK_MOD1_MASK | GDK_SHIFT_MASK"/>
+      <accelerator key="Right" modifiers="GDK_MOD1_MASK"/>
     </child>
     <child>
       <object class="GtkAction" id="PullRight">
@@ -90,7 +90,7 @@
         <property name="stock_id">gtk-goto-first</property>
         <signal name="activate" handler="action_pull_change_right" swapped="no"/>
       </object>
-      <accelerator key="Left" modifiers="GDK_MOD1_MASK | GDK_SHIFT_MASK"/>
+      <accelerator key="Left" modifiers="GDK_MOD1_MASK"/>
     </child>
     <child>
       <object class="GtkAction" id="CopyLeftUp">
