@@ -54,7 +54,7 @@ class MeldWindow(Component):
             ("SaveAs", Gtk.STOCK_SAVE_AS, _("Save As…"), "<Primary><shift>S",
                 _("Save the current file with a different name"),
                 self.on_menu_save_as_activate),
-            ("Close", Gtk.STOCK_CLOSE, None, None,
+            ("Close", Gtk.STOCK_CLOSE, None, "Escape",
                 _("Close the current file"),
                 self.on_menu_close_activate),
 
@@ -103,7 +103,7 @@ class MeldWindow(Component):
             ("FileStatus", None, _("File Status")),
             ("VcStatus", None, _("Version Status")),
             ("FileFilters", None, _("File Filters")),
-            ("Stop", Gtk.STOCK_STOP, None, "Escape",
+            ("Stop", Gtk.STOCK_STOP, None, "<Primary>Escape",
                 _("Stop the current action"),
                 self.on_toolbar_stop_clicked),
             ("Refresh", Gtk.STOCK_REFRESH, None, "<Primary>R",
