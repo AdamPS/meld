@@ -1803,6 +1803,10 @@ class FileDiff(Gtk.Box, MeldDoc):
         except ValueError:
             # Notification for unknown buffer
             return
+        if not self.textbuffer[pane].get_modified():
+            # Automatically reload unchanged
+            self.action_revert()
+            return;
         display_name = data.gfile.get_parse_name()
         primary = _("File %s has changed on disk") % display_name
         secondary = _("Do you want to reload the file?")
