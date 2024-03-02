@@ -289,13 +289,10 @@ class MeldWindow(Gtk.ApplicationWindow):
         self.notebook.remove_page(page_num)
         # Normal switch-page handlers don't get run for removing the
         # last page from a notebook.
-        if not self.has_pages():
-            self.on_switch_page(self.notebook, page, -1)
-            if self.should_close:
-                cancelled = self.emit(
-                    'delete-event', Gdk.Event.new(Gdk.EventType.DELETE))
-                if not cancelled:
-                    self.destroy()
+        cancelled = self.emit(
+            'delete-event', Gdk.Event.new(Gdk.EventType.DELETE))
+        if not cancelled:
+            self.destroy()
 
     def on_page_state_changed(self, page, old_state, new_state):
         if self.should_close and old_state == ComparisonState.Closing:
